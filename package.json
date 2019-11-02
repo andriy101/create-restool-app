@@ -1,0 +1,27 @@
+{
+  "name": "create-restool-app",
+  "version": "1.0.0",
+  "description": "Schematics generator for RESTool (https://github.com/dsternlicht/RESTool)",
+  "bin": {
+    "create-restool-app": "./bin/run.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rest",
+    "rest api",
+    "rest tool"
+  ],
+  "author": {
+    "name": "Andriy Malish",
+    "email": "andriy101@gmail.com",
+    "url": "https://www.linkedin.com/in/andriymalish/"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "download-git-repo": "^3.0.2",
+    "figlet": "^1.2.4"
+  }
+}

@@ -1,0 +1,4 @@
+{
+    "/api/*\\?search=:search": "/$1?q=:search",
+    "/api/*": "/$1"
+  }
