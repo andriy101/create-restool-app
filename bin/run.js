@@ -9,6 +9,8 @@ const figlet = require('figlet');
 const chalk = require('chalk');
 
 const appName = 'restool-app';
+const appDir = `${process.cwd()}/${appName}`;
+const tmpDir = `${appDir}/tmp`;
 const spawnOpts = {
   stdio: 'inherit'
 };
@@ -23,49 +25,50 @@ const assetsPath = `${spawn('npm', ['ls', 'create-restool-app', '-ps']).stdout.t
 
   printSectionTitle('Download RESTool');
   await new Promise((resolve, reject) => {
-    downloadGit('dsternlicht/RESTool', 'tmp', err => {
+    downloadGit('dsternlicht/RESTool', tmpDir, err => {
       err ? reject(false) : resolve(true);
     })
   });
-  spawn('rm', ['-rf', 'tmp/dist'], spawnOpts);
+  spawn('rm', ['-rf', `${tmpDir}/dist`], spawnOpts);
 
   printSectionTitle('NPM install');
   // remove prepare script from package json file
-  let packageJson = JSON.parse(fs.readFileSync('tmp/package.json'));
+  let packageJson = JSON.parse(fs.readFileSync(`${tmpDir}/package.json`));
   delete packageJson.scripts.prepare;
-  fs.writeFileSync('tmp/package.json', JSON.stringify(packageJson, null, 2));
-  spawnOpts.cwd = `${process.cwd()}/tmp`;
+  fs.writeFileSync(`${tmpDir}/package.json`, JSON.stringify(packageJson, null, 2));
+  spawnOpts.cwd = tmpDir;
   spawn('npm', ['i'], spawnOpts);
 
   printSectionTitle('NPM run build');
   spawn('npm', ['run', 'build'], spawnOpts);
 
   printSectionTitle('Move dist folder');
-  spawn('mv', ['dist', `../${appName}/public`], spawnOpts);
-  // copy config json from the module
-  spawn('cp', [`${assetsPath}/config.json`, `../${appName}/public`], spawnOpts);
+  spawn('mv', ['dist', '../public'], spawnOpts);
+  // copy config json and images from the module to public directory
+  spawn('cp', [`${assetsPath}/config.json`, '../public'], spawnOpts);
+  spawn('cp', ['-r', `${assetsPath}/images`, '../public'], spawnOpts);
 
   printSectionTitle('Remove build files');
-  spawnOpts.cwd = process.cwd();
+  spawnOpts.cwd = appDir;
   spawn('rm', ['-rf', 'tmp'], spawnOpts);
 
   printSectionTitle('Create server');
-  spawn('mkdir', [`${appName}/server`], spawnOpts);
+  spawn('mkdir', ['server'], spawnOpts);
 
   // copy json server files from the module
-  spawn('cp', [`${assetsPath}/db.json`, `${appName}/server`], spawnOpts);
-  spawn('cp', [`${assetsPath}/routes.json`, `${appName}/server`], spawnOpts);
+  spawn('cp', [`${assetsPath}/db.json`, 'server'], spawnOpts);
+  spawn('cp', [`${assetsPath}/routes.json`, 'server'], spawnOpts);
 
   printSectionTitle('Server - NPM init');
-  spawnOpts.cwd = `${process.cwd()}/${appName}/server`;
+  spawnOpts.cwd = `${appDir}/server`;
   spawn('npm', ['init', '-y'], spawnOpts);
 
   printSectionTitle('Server - NPM install');
   spawn('npm', ['i', 'json-server', 'open-cli'], spawnOpts);
   // add run script to server package json file
-  packageJson = JSON.parse(fs.readFileSync(`${appName}/server/package.json`));
+  packageJson = JSON.parse(fs.readFileSync(`${appDir}/server/package.json`));
   packageJson.scripts.start = 'open-cli http://localhost:3000 & json-server db.json -s ../public -r routes.json';
-  fs.writeFileSync(`${appName}/server/package.json`, JSON.stringify(packageJson, null, 2));
+  fs.writeFileSync(`${appDir}/server/package.json`, JSON.stringify(packageJson, null, 2));
 
   printSectionTitle('Run server');
   spawn('npm', ['start'], spawnOpts);

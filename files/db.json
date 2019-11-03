@@ -71,14 +71,6 @@
         "realName": "Gwendoline Christie",
         "location": "Winterfell",
         "isAlive": true
-      },
-      {
-        "thumbnail": "fff",
-        "name": "ggg",
-        "realName": "hhhhh",
-        "location": "Kings Landing",
-        "isAlive": null,
-        "id": "1c2LPTm"
       }
     ],
     "employee": [
@@ -141,12 +133,6 @@
         "name": "GEORGE R.R. MARTIN",
         "jobTitle": "Co-Executive Producer",
         "isFired": false
-      },
-      {
-        "name": "BALCHEER",
-        "jobTitle": "Co-Executive Producer",
-        "isFired": null,
-        "id": "kQK-5hf"
       }
     ],
     "dead": [
