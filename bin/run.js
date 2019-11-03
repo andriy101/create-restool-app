@@ -48,7 +48,7 @@ const assetsPath = path.join(__dirname, '../files');
   printSectionTitle('Move dist folder');
   spawn('mv', ['dist', '../public'], spawnOpts);
   // copy config json and images from the module to public directory
-  spawn('cp', ['-r', `${assetsPath}/public/*`, '../public'], spawnOpts);
+  spawn('cp', ['-a', `${assetsPath}/public/.`, '../public/'], spawnOpts);
 
   printSectionTitle('Remove build files');
   spawnOpts.cwd = appDir;
