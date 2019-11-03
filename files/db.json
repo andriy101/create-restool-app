@@ -2,7 +2,7 @@
     "character": [
       {
         "id": "d1pUxdpQK8g4",
-        "thumbnail": "https://www.hbo.com/content/dam/hbodata/series/game-of-thrones/character/s5/tyrion-lannister-512x512.jpg/_jcr_content/renditions/cq5dam.web.260.260.jpeg",
+        "thumbnail": "/images/tyrion-lannister.jpeg",
         "name": "Tyrion Lannister",
         "realName": "Peter Dinklage",
         "location": "Winterfell",
@@ -10,7 +10,7 @@
       },
       {
         "id": "Z4vO2tjDsvh4",
-        "thumbnail": "https://www.hbo.com/content/dam/hbodata/series/game-of-thrones/character/s5/cersei-lannister-512x512.jpg/_jcr_content/renditions/cq5dam.web.260.260.jpeg",
+        "thumbnail": "/images/cersei-lannister.jpeg",
         "name": "Cersei Lannister",
         "realName": "Lena Headey",
         "location": "Kings Landing",
@@ -18,7 +18,7 @@
       },
       {
         "id": "AeuyoD6aXtjj",
-        "thumbnail": "https://www.hbo.com/content/dam/hbodata/series/game-of-thrones/character/s5/daenarys-512x512.jpg/_jcr_content/renditions/cq5dam.web.260.260.jpeg",
+        "thumbnail": "/images/daenarys.jpeg",
         "name": "Daenerys Targaryen",
         "realName": "Emilia Clarke",
         "location": "Winterfell",
@@ -26,7 +26,7 @@
       },
       {
         "id": "hMsFpoUaywml",
-        "thumbnail": "https://www.hbo.com/content/dam/hbodata/series/game-of-thrones/character/s5/john-snow-512x512.jpg/_jcr_content/renditions/cq5dam.web.260.260.jpeg",
+        "thumbnail": "/images/john-snow.jpeg",
         "name": "Jon Snow",
         "realName": "Kit Harington",
         "location": "Winterfell",
@@ -34,7 +34,7 @@
       },
       {
         "id": "6jS7GyTuPk5x",
-        "thumbnail": "https://www.hbo.com/content/dam/hbodata/series/game-of-thrones/character/s5/sansa-stark-512x512.jpg/_jcr_content/renditions/cq5dam.web.260.260.jpeg",
+        "thumbnail": "/images/sansa-stark.jpeg",
         "name": "Sansa Stark",
         "realName": "Sophie Turner",
         "location": "Winterfell",
@@ -42,7 +42,7 @@
       },
       {
         "id": "Kx3u7eHrI0c5",
-        "thumbnail": "https://www.hbo.com/content/dam/hbodata/series/game-of-thrones/character/s5/arya-stark-512x512.jpg/_jcr_content/renditions/cq5dam.web.260.260.jpeg",
+        "thumbnail": "/images/arya-stark.jpeg",
         "name": "Arya Stark",
         "realName": "Maisie Williams",
         "location": "Winterfell",
@@ -50,7 +50,7 @@
       },
       {
         "id": "RQWYcujUw6By",
-        "thumbnail": "https://www.hbo.com/content/dam/hbodata/series/game-of-thrones/character/s5/samwell-512x512.jpg/_jcr_content/renditions/cq5dam.web.260.260.jpeg",
+        "thumbnail": "/images/samwell.jpeg",
         "name": "Samwell Tarly",
         "realName": "John Bradley",
         "location": "Winterfell",
@@ -58,7 +58,7 @@
       },
       {
         "id": "DfyFBnkn4ayC",
-        "thumbnail": "https://www.hbo.com/content/dam/hbodata/series/game-of-thrones/character/s5/maetser-varys-512x512.jpg/_jcr_content/renditions/cq5dam.web.260.260.jpeg",
+        "thumbnail": "/images/maetser-varys.jpeg",
         "name": "Varys",
         "realName": "Conleth Hill",
         "location": "Winterfell",
@@ -66,7 +66,7 @@
       },
       {
         "id": "SKB8ZYQxE9Yz",
-        "thumbnail": "https://www.hbo.com/content/dam/hbodata/series/game-of-thrones/character/s5/brienne-of-tarth-512x512.jpg/_jcr_content/renditions/cq5dam.web.260.260.jpeg",
+        "thumbnail": "/images/brienne-of-tarth.jpeg",
         "name": "Brienne of Tarth",
         "realName": "Gwendoline Christie",
         "location": "Winterfell",

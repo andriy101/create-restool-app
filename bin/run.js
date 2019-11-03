@@ -16,10 +16,11 @@ const spawnOpts = {
   stdio: 'inherit'
 };
 // assets path within create-restool-app module
-const assetsPath = `${spawn('npm', ['ls', 'create-restool-app', '-ps']).stdout.toString().trim()}/files`;
+const assetsPath = path.join(__dirname, '../files');
 
 
 (async () => {
+  console.log('ASDFG', assetsPath);
   printSectionTitle(`Create folder`);
   spawn('rm', ['-rf', appName], spawnOpts);
   spawn('mkdir', [appName], spawnOpts);
@@ -60,11 +61,11 @@ const assetsPath = `${spawn('npm', ['ls', 'create-restool-app', '-ps']).stdout.t
   spawn('cp', [`${assetsPath}/db.json`, 'server'], spawnOpts);
   spawn('cp', [`${assetsPath}/routes.json`, 'server'], spawnOpts);
 
-  printSectionTitle('Server - NPM init');
+  printSectionTitle('Server: NPM init');
   spawnOpts.cwd = `${appDir}/server`;
   spawn('npm', ['init', '-y'], spawnOpts);
 
-  printSectionTitle('Server - NPM install');
+  printSectionTitle('Server: NPM install');
   spawn('npm', ['i', 'json-server', 'open-cli'], spawnOpts);
   // add run script to server package json file
   packageJson = JSON.parse(fs.readFileSync(`${appDir}/server/package.json`));
@@ -76,7 +77,6 @@ const assetsPath = `${spawn('npm', ['ls', 'create-restool-app', '-ps']).stdout.t
 
   printSectionTitle('ENJOY RESTool');
 })();
-
 
 
 /**
