@@ -4,14 +4,14 @@
 [![npm](https://img.shields.io/npm/dt/create-restool-app.svg)](https://npm-stat.com/charts.html?package=create-restool-app)
 [![GitHub license](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/andriy101/create-restool-app/blob/master/LICENSE)
 
-<img src="https://raw.githubusercontent.com/dsternlicht/RESTool/master/screenshots/restool_screenshot.png?raw=true" alt="RESTool Sample App"/>
+[![RESTool Sample App](https://raw.githubusercontent.com/dsternlicht/RESTool/master/screenshots/restool_screenshot.png)](https://github.com/dsternlicht/RESTool)
 
 This module is an assistant creator module for [RESTool](https://github.com/dsternlicht/RESTool) sample app.
 
 **Live Demo**: [https://restool-sample-app.herokuapp.com/](https://restool-sample-app.herokuapp.com/).
 
 
-### Create local RESTool using [JSON SERVER](https://github.com/typicode/json-server) module:
+## Create local RESTool app using [Json Server](https://github.com/typicode/json-server) module:
 
     # with npm
     npm init restool-app
@@ -45,4 +45,4 @@ restool-app
 
 The application is started by running `npm start` from `server` folder.
 
-
+Images of the sample app are downloaded from https://www.hbo.com

@@ -1,6 +1,6 @@
 {
   "name": "create-restool-app",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Generator for RESTool (https://github.com/dsternlicht/RESTool)",
   "bin": {
     "create-restool-app": "./bin/run.js"
