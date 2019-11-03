@@ -9,9 +9,8 @@ const downloadGit = require('download-git-repo');
 const figlet = require('figlet');
 const chalk = require('chalk');
 
-// detect windows OS and use npm(/npx).cmd instead of npm(/npx)
+// detect windows OS and use npm.cmd instead of npm
 const npmCommand = process.platform === 'win32' ? 'npm.cmd' : 'npm';
-const npxCommand = process.platform === 'win32' ? 'npx.cmd' : 'npx';
 const appName = 'restool-app';
 const appDir = `${process.cwd()}/${appName}`;
 const tmpDir = `${appDir}/tmp`;
@@ -49,30 +48,18 @@ const assetsPath = path.join(__dirname, '../files');
   printSectionTitle('Move dist folder');
   spawn('mv', ['dist', '../public'], spawnOpts);
   // copy config json and images from the module to public directory
-  spawn('cp', [`${assetsPath}/config.json`, '../public'], spawnOpts);
-  spawn('cp', ['-r', `${assetsPath}/images`, '../public'], spawnOpts);
+  spawn('cp', ['-r', `${assetsPath}/public/*`, '../public'], spawnOpts);
 
   printSectionTitle('Remove build files');
   spawnOpts.cwd = appDir;
   spawn('rm', ['-rf', 'tmp'], spawnOpts);
 
-  printSectionTitle('Create server');
-  spawn('mkdir', ['server'], spawnOpts);
+  printSectionTitle('Copy server files');
+  spawn('cp', ['-r', `${assetsPath}/server`, '.'], spawnOpts);
 
-  // copy json server files from the module
-  spawn('cp', [`${assetsPath}/db.json`, 'server'], spawnOpts);
-  spawn('cp', [`${assetsPath}/routes.json`, 'server'], spawnOpts);
-
-  printSectionTitle('Server: NPM init');
+  printSectionTitle('Server NPM install');
   spawnOpts.cwd = `${appDir}/server`;
-  spawn(npmCommand, ['init', '-y'], spawnOpts);
-
-  printSectionTitle('Server: NPM install');
-  spawn(npmCommand, ['i', 'json-server', 'open-cli'], spawnOpts);
-  // add run script to server package json file
-  packageJson = JSON.parse(fs.readFileSync(`${appDir}/server/package.json`));
-  packageJson.scripts.start = `${npxCommand} open-cli http://localhost:3000 & ${npxCommand} json-server db.json -s ../public -r routes.json`;
-  fs.writeFileSync(`${appDir}/server/package.json`, JSON.stringify(packageJson, null, 2));
+  spawn(npmCommand, ['i'], spawnOpts);
 
   printSectionTitle('Run server');
   spawn(npmCommand, ['start'], spawnOpts);
