@@ -3,6 +3,7 @@
 
 const spawn = require('child_process').spawnSync;
 const fs = require('fs');
+const path = require('path');
 
 const downloadGit = require('download-git-repo');
 const figlet = require('figlet');
