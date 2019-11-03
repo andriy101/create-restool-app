@@ -9,6 +9,9 @@ const downloadGit = require('download-git-repo');
 const figlet = require('figlet');
 const chalk = require('chalk');
 
+// detect windows OS and use npm(/npx).cmd instead of npm(/npx)
+const npmCommand = process.platform === 'win32' ? 'npm.cmd' : 'npm';
+const npxCommand = process.platform === 'win32' ? 'npx.cmd' : 'npx';
 const appName = 'restool-app';
 const appDir = `${process.cwd()}/${appName}`;
 const tmpDir = `${appDir}/tmp`;
@@ -20,7 +23,6 @@ const assetsPath = path.join(__dirname, '../files');
 
 
 (async () => {
-  console.log('ASDFG', assetsPath);
   printSectionTitle(`Create folder`);
   spawn('rm', ['-rf', appName], spawnOpts);
   spawn('mkdir', [appName], spawnOpts);
@@ -39,10 +41,10 @@ const assetsPath = path.join(__dirname, '../files');
   delete packageJson.scripts.prepare;
   fs.writeFileSync(`${tmpDir}/package.json`, JSON.stringify(packageJson, null, 2));
   spawnOpts.cwd = tmpDir;
-  spawn('npm', ['i'], spawnOpts);
+  spawn(npmCommand, ['i'], spawnOpts);
 
   printSectionTitle('NPM run build');
-  spawn('npm', ['run', 'build'], spawnOpts);
+  spawn(npmCommand, ['run', 'build'], spawnOpts);
 
   printSectionTitle('Move dist folder');
   spawn('mv', ['dist', '../public'], spawnOpts);
@@ -63,17 +65,17 @@ const assetsPath = path.join(__dirname, '../files');
 
   printSectionTitle('Server: NPM init');
   spawnOpts.cwd = `${appDir}/server`;
-  spawn('npm', ['init', '-y'], spawnOpts);
+  spawn(npmCommand, ['init', '-y'], spawnOpts);
 
   printSectionTitle('Server: NPM install');
-  spawn('npm', ['i', 'json-server', 'open-cli'], spawnOpts);
+  spawn(npmCommand, ['i', 'json-server', 'open-cli'], spawnOpts);
   // add run script to server package json file
   packageJson = JSON.parse(fs.readFileSync(`${appDir}/server/package.json`));
-  packageJson.scripts.start = 'open-cli http://localhost:3000 & json-server db.json -s ../public -r routes.json';
+  packageJson.scripts.start = `${npxCommand} open-cli http://localhost:3000 & ${npxCommand} json-server db.json -s ../public -r routes.json`;
   fs.writeFileSync(`${appDir}/server/package.json`, JSON.stringify(packageJson, null, 2));
 
   printSectionTitle('Run server');
-  spawn('npm', ['start'], spawnOpts);
+  spawn(npmCommand, ['start'], spawnOpts);
 
   printSectionTitle('ENJOY RESTool');
 })();

@@ -1,9 +1,13 @@
 {
   "name": "create-restool-app",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Generator for RESTool (https://github.com/dsternlicht/RESTool)",
   "bin": {
     "create-restool-app": "./bin/run.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andriy101/create-restool-app.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
