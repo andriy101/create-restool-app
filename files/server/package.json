@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx open-cli http://localhost:3000 & npx json-server db.json -s ../public -r routes.json"
+    "start": "npx json-server db.json -s ../public -r routes.json"
   },
   "keywords": [],
   "author": "",

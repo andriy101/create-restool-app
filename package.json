@@ -1,6 +1,6 @@
 {
   "name": "create-restool-app",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Generator for RESTool (https://github.com/dsternlicht/RESTool)",
   "bin": {
     "create-restool-app": "./bin/run.js"
@@ -26,6 +26,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "args": "^5.0.1",
     "chalk": "^2.4.2",
     "download-git-repo": "^3.0.2",
     "figlet": "^1.2.4"

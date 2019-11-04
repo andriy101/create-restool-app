@@ -14,17 +14,23 @@ This module is an assistant creator module for [RESTool](https://github.com/dste
 ## Create local RESTool app using [Json Server](https://github.com/typicode/json-server) module:
 
     # with npm
-    npm init restool-app
+    npm init restool-app <app-name>
     # or with yarn 
-    yarn create restool-app
+    yarn create restool-app <app-name>
 
-Running this command will:
-* create new folder 'restool-app' (it will be overridden if exists)
+    <app_name> is optional and defaults to 'restool-app'
+  
+    Options:
+        -o, --open      Open app in default browser window (enabled by default)
+        -p, --port      The port on which the app will be running (defaults to 3000)
+
+Running `npm init restool-app <app-name>` command will:
+* create new folder with provided `<app-name>` or 'restool-app' if not provided (it will be overridden if exists)
 * download [RESTool code](https://github.com/dsternlicht/RESTool) from GIT
 * install all needed NPM modules
 * run Angular build on source code
 * create server with all needed for JSON SERVER configuration files
-* run and open RESTool sample app at localhost:3000 (make sure the port is not occupied by another tasks)
+* run and open RESTool sample app at localhost with provided port (defaults to 3000, make sure the port is not occupied by another tasks)
 
 
 Created files structure will look like:
