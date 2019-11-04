@@ -100,6 +100,7 @@ function getArgs() {
 
   const pArgs = process.argv.map(a => ['false', 'true'].includes(a) ? JSON.parse(a) : a)
   const flags = args.parse(pArgs, {
+    version: false,
     usageFilter: (msg) => {
       const lines = msg.split('\n  \n');
       lines[1] = '  <app_name> is optional and defaults to \'restool-app\'';
