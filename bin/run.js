@@ -86,7 +86,7 @@ const startTime = new Date().getTime();
  */
 function printSectionTitle(title, chalkFunc) {
   title = figlet.textSync(title);
-  console.log('  ' + chalk.bold.green(`(${Math.round((new Date().getTime() - startTime) / 1000)} seconds)`));
+  console.log(' \n' + chalk.bold.green(`(${Math.round((new Date().getTime() - startTime) / 1000)} seconds)`));
   console.log(chalkFunc ? chalk[chalkFunc](title) : title);
   console.log('');
 }

@@ -21,8 +21,8 @@ This module is an assistant creator module for [RESTool](https://github.com/dste
     <app_name> is optional and defaults to 'restool-app'
   
     Options:
-        -o, --open      Open app in default browser window (enabled by default)
-        -p, --port      The port on which the app will be running (defaults to 3000)
+     -o, --open   Open app in default browser window (enabled by default)
+     -p, --port   The port on which the app will be running (defaults to 3000)
 
 Running `npm init restool-app <app-name>` command will:
 * create new folder with provided `<app-name>` or 'restool-app' if not provided (it will be overridden if exists)
